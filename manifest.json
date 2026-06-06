@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Chess.com to Lichess game review automator",
+  "version": "1.0",
+  "description": "Automatically sends games from Chess.com to Lichess.org.",
+  "background": {
+    "service_worker": "dist/background.js"
+  },
+  "permissions": ["scripting"],
+  "host_permissions": ["*://*.chess.com/*", "*://lichess.org/*"],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.chess.com/game/*",
+        "*://*.chess.com/live/*",
+        "*://*.chess.com/analysis/*"
+      ],
+      "js": ["dist/content.js"]
+    }
+  ]
+}
