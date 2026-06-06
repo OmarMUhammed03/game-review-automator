@@ -1,0 +1,26 @@
+{
+  "name": "game-review-automator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "esbuild src/index.ts --bundle --outfile=dist/content.js && esbuild src/background.ts --bundle --outfile=dist/background.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OmarMUhammed03/game-review-automator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/OmarMUhammed03/game-review-automator/issues"
+  },
+  "homepage": "https://github.com/OmarMUhammed03/game-review-automator#readme",
+  "devDependencies": {
+    "@types/chrome": "^0.1.43",
+    "esbuild": "^0.28.0",
+    "typescript": "^6.0.3"
+  }
+}
