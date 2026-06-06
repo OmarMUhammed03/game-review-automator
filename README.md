@@ -2,6 +2,16 @@
 
 > A modern, lightweight browser extension that bridges **Chess.com** and **Lichess.org** — export and analyze your finished games using Lichess's free Stockfish engine in a single click.
 
+---
+
+## 🎯 Why This Exists
+
+**Chess.com limits free users to only one game review per day.** If you play multiple games and want to understand your mistakes across all of them, you quickly hit this wall — and unlocking unlimited reviews requires a paid subscription.
+
+**Lichess, on the other hand, provides a completely free and unlimited public analysis tool** powered by the same Stockfish engine. There are no rate limits, no paywalls, and no account required to analyze a game.
+
+This extension bridges that gap. It silently fetches the PGN of any Chess.com game you're viewing and ships it straight to Lichess's open import API — giving you full, deep Stockfish analysis for free, for every game, with a single click.
+
 Instead of manually copying PGN text, opening a new tab, and pasting it into Lichess, this extension automates the entire process silently in the background.
 
 ---
