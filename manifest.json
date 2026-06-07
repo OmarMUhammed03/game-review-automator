@@ -10,11 +10,7 @@
   "host_permissions": ["*://*.chess.com/*", "*://lichess.org/*"],
   "content_scripts": [
     {
-      "matches": [
-        "*://*.chess.com/game/*",
-        "*://*.chess.com/live/*",
-        "*://*.chess.com/analysis/*"
-      ],
+      "matches": ["*://*.chess.com/*"],
       "js": ["dist/content.js"]
     }
   ]

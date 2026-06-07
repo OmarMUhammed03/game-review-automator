@@ -104,21 +104,20 @@ export function setupLichessButton(onClick: () => void): void {
     });
   }
 
-  // Observe page title changes for SPA navigation detection
-  const titleEl = document.querySelector("title");
-  if (titleEl) {
-    const titleObserver = new MutationObserver(() => {
-      handleVisibility();
-    });
-    titleObserver.observe(titleEl, {
-      childList: true,
-      characterData: true,
-      subtree: true,
-    });
-  }
+  const patchHistoryMethod = (method: "pushState" | "replaceState") => {
+    const original = history[method].bind(history) as History["pushState"];
+    history[method] = function (...args: Parameters<History["pushState"]>) {
+      const result = original(...args);
+      window.dispatchEvent(new Event("spa-navigate"));
+      return result;
+    };
+  };
 
-  // Listen to standard popstate for history navigation
+  patchHistoryMethod("pushState");
+  patchHistoryMethod("replaceState");
+
   window.addEventListener("popstate", handleVisibility);
+  window.addEventListener("spa-navigate", handleVisibility);
 }
 
 export function updateButtonState(state: ButtonState): void {
